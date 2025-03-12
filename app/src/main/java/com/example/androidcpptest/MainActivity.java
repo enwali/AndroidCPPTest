@@ -2,8 +2,15 @@ package com.example.androidcpptest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.androidcpptest.databinding.ActivityMainBinding;
 
@@ -26,11 +33,18 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = binding.sampleText;
         tv.setText(stringFromJNI());
+
+        binding.sendBc.setOnClickListener(v -> {
+            SSDPHelper helper = new SSDPHelper(message -> {
+                Log.e("MainActivity", "接收数据" + message);
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+            });
+            helper.discoverDevices();
+        });
+        binding.btnWeb.setOnClickListener(v -> {
+            startActivity(new Intent(this, WebViewActivity.class));
+        });
     }
 
-    /**
-     * A native method that is implemented by the 'androidcpptest' native library,
-     * which is packaged with this application.
-     */
     public native String stringFromJNI();
 }

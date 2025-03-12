@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation("androidx.core:core-splashscreen:1.0.0-beta01")
+    implementation(libs.activity)
     //implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
 
     testImplementation(libs.junit)
