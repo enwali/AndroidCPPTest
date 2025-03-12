@@ -24,6 +24,7 @@ import com.example.androidcpptest.utils.web.WebViewHelper;
 public class WebViewActivity extends AppCompatActivity {
     private WebViewHelper webViewHelper;
 
+    boolean isVideoResourceFound = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +38,13 @@ public class WebViewActivity extends AppCompatActivity {
             @Override
             public void onVideoResourceFound(String url, String mimeType) {
                 Log.d("VideoSniffer", "发现视频资源: " + url);
-//                Toast.makeText(WebViewActivity.this, "发现视频资源: " + url, Toast.LENGTH_LONG).show();
-                // 这里可以处理视频资源URL，比如展示给用户或进行下载
+                if(isVideoResourceFound){
+                    return;
+                }
+                isVideoResourceFound = true;
+                runOnUiThread(() -> {
+                    VideoPlayerActivity.start(WebViewActivity.this, url);
+                });
             }
         });
 

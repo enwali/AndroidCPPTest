@@ -7,6 +7,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 constraintlayout = "2.1.4"
 activity = "1.8.0"
+exoplayer = "2.19.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -16,6 +17,9 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+exoplayer-core = { group = "com.google.android.exoplayer", name = "exoplayer-core", version.ref = "exoplayer" }
+exoplayer-ui = { group = "com.google.android.exoplayer", name = "exoplayer-ui", version.ref = "exoplayer" }
+exoplayer-hls = { group = "com.google.android.exoplayer", name = "exoplayer-hls", version.ref = "exoplayer" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

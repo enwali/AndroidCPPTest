@@ -66,4 +66,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // ExoPlayer dependencies
+    implementation(libs.exoplayer.core)
+    implementation(libs.exoplayer.ui)
+    implementation(libs.exoplayer.hls)
 }
